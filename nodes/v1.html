@@ -26,7 +26,40 @@
 </script>
 
 <script type="text/x-red" data-help-name="facebook-messenger-writer">
-    <p>Details will go here</p>
+    <p>This node is a Bluemix friendly writer to Facebook Messenger. For Facebook
+      messenger setup usage refer to the
+      <a href="https://github.com/ibm-early-programs/node-red-contrib-facebook-messenger-writer"
+      target="_blank">Node Documentation</a>
+    </p>
+
+    <p><b>Usage</b></p>
+    <p>This node should be provided in input : </p>
+    <ul>
+      <li><code>msg.payload</code> : the message to send. Format: String </li>
+      <li><code>msg.facebookevent</code> : a facebook event, which is normally,
+      received on an incoming message. Refer to the
+      <a href="https://github.com/ibm-early-programs/node-red-contrib-facebook-messenger-writer"
+      target="_blank">Node Documentation</a> for details.
+      Only the sender ID is needed in the facebook event, which is used as the
+      recipient ID to send the return message. eg.
+      <code>
+          msg.facebookevent = {
+              "sender": { "id": "111111111111" },
+              "recipient": { "id": "222222222222" },
+              "timestamp": 1478167276278,
+              "message": {
+                  "mid": "mid.1478167276278:684dd80866",
+                  "seq": 6,
+                  "text": "Hello Mr Bot"
+                }
+          };
+      </code>
+    </ul>
+
+    <p><b>Configuration</b></p>
+    <p>To send the message, this node needs the Access Token, that facebook
+      sets up for you to use.
+    </p>
 </script>
 
 <script type="text/javascript">
