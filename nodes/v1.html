@@ -62,6 +62,15 @@
     </p>
 </script>
 
+<style type="text/css">
+  .node_label_white {
+    fill: white;
+  }
+  #palette_node_facebook-messenger-writer > div.palette_label {
+    color: white;
+  }
+</style>
+
 <script type="text/javascript">
     (function() {
         RED.nodes.registerType('facebook-messenger-writer', {
@@ -75,12 +84,13 @@
             color: "rgb(200,50,50)",
             inputs: 1,
             outputs: 1,
-            paletteLabel: "facebook messenger writer",
+            paletteLabel: "facebook messenger",
+            icon: "fb.png",
             label: function() {
-                return this.name || "facebook messenger writer";
+                return this.name || "facebook messenger";
             },
             labelStyle: function() {
-                return this.name ? "node_label_italic" : "";
+                return this.name ? "node_label_italic node_label_white" : "node_label_white";
             }
         });
     })();
