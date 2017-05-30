@@ -111,7 +111,15 @@ if (msg.payload.object && 'page' == msg.payload.object) {
                 if (messaging[j].optin) {
                     msg.processAS = 'AUTHENTICATION';     
                 } else if (messaging[j].message) {
-                    msg.processAS = 'MESSAGE';
+                  if(messaging[j].message.attachments) {
+                      if(messaging[j].message.attachments[0].type == "location") {
+                          msg.processAS = 'LOCATION';
+                      } else {
+                          msg.processAS = 'OTHER';
+                      }
+                  } else {
+                      msg.processAS = 'MESSAGE';
+                  }
                 } else if (messaging[j].delivery) {
                     msg.processAS = 'DELIVERY';
                 } else if (messaging[j].postback) {
