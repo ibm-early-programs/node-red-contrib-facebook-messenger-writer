@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-facebook-messenger-writer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A node to write output to Facebook Messenger",
   "dependencies": {
     "request": "~2.53.0"
