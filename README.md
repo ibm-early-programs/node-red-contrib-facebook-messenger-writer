@@ -17,7 +17,8 @@ Run the following command in the root directory of your Node-RED install:
 This node only writes to your Facebook page. To do that it needs a recipient id (which is normally the sender id from a message received) and an Access Token (something that you set up when you
 follow the facebook messenger developers quick start guide.  [Facebook Messenger Developers Quick Start Guide](https://developers.facebook.com/docs/messenger-platform/guides/quick-start))
 
-The message to send should be set in msg.payload
+The message to send should be set in msg.payload. If msg.payload is a string, the string will be sent as the message.
+If msg.payload is an object, the object will be sent unaltered.
 
 The node needs an ID to send the return message. As the recipient for the
 response is normally the sender of the original message, msg.facebookevent
