@@ -21,8 +21,8 @@ module.exports = function (RED) {
     if (!msg.payload) {
       return 'Missing property: msg.payload';
     }
-    if ('string' !== typeof(msg.payload)) {
-      return 'submitted msg.payload is not text';
+    if ('string' !== typeof(msg.payload) && !msg.payload.text) {
+      return 'msg.payload must be a string or contain a "text" key';
     }
     if (!msg.facebookevent) {
       return  'Missing property: msg.facebookevent';
@@ -40,11 +40,22 @@ module.exports = function (RED) {
     return '';
   }
 
-  function sendReplyMessage(node, token, to, text) {
+  function sendReplyMessage(node, token, to, msg_obj) {
+    var our_msg;
+
+    if ('string' == typeof(msg_obj)) {
+      // If the message is just a string, format it appropriately
+      our_msg = {text: msg_obj};
+    } else {
+      // Otherwise, pass it on unmaligned
+      our_msg = msg_obj;
+    }
+    
     var messageData = {
-      recipient: {id: to},
-      message: {text: text}
-    };
+        recipient: {id: to},
+        message: our_msg
+      };
+  
 
     request({
       uri: 'https://graph.facebook.com/v2.6/me/messages',
