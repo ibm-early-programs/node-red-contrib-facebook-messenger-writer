@@ -35,7 +35,10 @@
     <p><b>Usage</b></p>
     <p>This node should be provided in input : </p>
     <ul>
-      <li><code>msg.payload</code> : the message to send. Format: String </li>
+      <li><code>msg.payload</code> : the message to send. Format: String or Object. 
+        If msg.payload is an object, the whole object will be sent as the message. 
+        You can use this to add, eg, custom quick replies to your messages.
+      </li>
       <li><code>msg.facebookevent</code> : a facebook event, which is normally,
       received on an incoming message. Refer to the
       <a href="https://github.com/ibm-early-programs/node-red-contrib-facebook-messenger-writer"
