@@ -3,7 +3,7 @@
   "version": "0.0.5",
   "description": "A node to write output to Facebook Messenger",
   "dependencies": {
-    "request": "~2.86.0"
+    "request": "~2.88.0"
   },
   "repository": {
     "type": "git",
